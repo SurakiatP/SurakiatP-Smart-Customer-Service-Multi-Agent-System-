@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "generated_at": "2024-01-15T23:59:59Z",
+    "description": "System performance metrics and KPIs",
+    "measurement_period": "2024-01-01 to 2024-01-15",
+    "data_points": 15840
+  },
+  "system_performance": {
+    "response_times": {
+      "avg_response_time": 2.34,
+      "median_response_time": 2.1,
+      "p95_response_time": 4.2,
+      "p99_response_time": 7.8,
+      "min_response_time": 0.8,
+      "max_response_time": 12.3,
+      "daily_averages": [
+        {"date": "2024-01-01", "avg_time": 2.8},
+        {"date": "2024-01-02", "avg_time": 2.5},
+        {"date": "2024-01-03", "avg_time": 2.2},
+        {"date": "2024-01-04", "avg_time": 2.1},
+        {"date": "2024-01-05", "avg_time": 2.3},
+        {"date": "2024-01-06", "avg_time": 2.0},
+        {"date": "2024-01-07", "avg_time": 2.4},
+        {"date": "2024-01-08", "avg_time": 2.2},
+        {"date": "2024-01-09", "avg_time": 2.6},
+        {"date": "2024-01-10", "avg_time": 2.3},
+        {"date": "2024-01-11", "avg_time": 2.1},
+        {"date": "2024-01-12", "avg_time": 2.5},
+        {"date": "2024-01-13", "avg_time": 2.3},
+        {"date": "2024-01-14", "avg_time": 2.2},
+        {"date": "2024-01-15", "avg_time": 2.4}
+      ]
+    },
+    "throughput": {
+      "total_requests": 15840,
+      "successful_requests": 15123,
+      "failed_requests": 717,
+      "success_rate": 95.47,
+      "requests_per_second": 12.3,
+      "peak_rps": 45.7,
+      "daily_volumes": [
+        {"date": "2024-01-01", "requests": 892},
+        {"date": "2024-01-02", "requests": 1156},
+        {"date": "2024-01-03", "requests": 1234},
+        {"date": "2024-01-04", "requests": 1089},
+        {"date": "2024-01-05", "requests": 987},
+        {"date": "2024-01-06", "requests": 756},
+        {"date": "2024-01-07", "requests": 823},
+        {"date": "2024-01-08", "requests": 1345},
+        {"date": "2024-01-09", "requests": 1287},
+        {"date": "2024-01-10", "requests": 1456},
+        {"date": "2024-01-11", "requests": 1234},
+        {"date": "2024-01-12", "requests": 1123},
+        {"date": "2024-01-13", "requests": 1089},
+        {"date": "2024-01-14", "requests": 1267},
+        {"date": "2024-01-15", "requests": 1102}
+      ]
+    },
+    "error_rates": {
+      "total_errors": 717,
+      "error_rate": 4.53,
+      "error_types": {
+        "timeout": 289,
+        "validation_error": 156,
+        "api_error": 134,
+        "database_error": 89,
+        "authentication_error": 49
+      },
+      "daily_error_rates": [
+        {"date": "2024-01-01", "error_rate": 6.2},
+        {"date": "2024-01-02", "error_rate": 5.1},
+        {"date": "2024-01-03", "error_rate": 4.8},
+        {"date": "2024-01-04", "error_rate": 4.2},
+        {"date": "2024-01-05", "error_rate": 4.7},
+        {"date": "2024-01-06", "error_rate": 3.9},
+        {"date": "2024-01-07", "error_rate": 4.3},
+        {"date": "2024-01-08", "error_rate": 4.1},
+        {"date": "2024-01-09", "error_rate": 4.8},
+        {"date": "2024-01-10", "error_rate": 4.4},
+        {"date": "2024-01-11", "error_rate": 3.8},
+        {"date": "2024-01-12", "error_rate": 4.2},
+        {"date": "2024-01-13", "error_rate": 4.0},
+        {"date": "2024-01-14", "error_rate": 4.5},
+        {"date": "2024-01-15", "error_rate": 4.3}
+      ]
+    }
+  },
+  "agent_performance": {
+    "ProductAgent": {
+      "total_requests": 7156,
+      "avg_response_time": 2.1,
+      "success_rate": 97.2,
+      "avg_confidence": 0.87,
+      "satisfaction_score": 4.6,
+      "knowledge_base_hits": 6234,
+      "cache_hit_rate": 0.78
+    },
+    "TechnicalAgent": {
+      "total_requests": 5034,
+      "avg_response_time": 3.2,
+      "success_rate": 92.8,
+      "avg_confidence": 0.82,
+      "satisfaction_score": 4.2,
+      "knowledge_base_hits": 4567,
+      "cache_hit_rate": 0.65
+    },
+    "RefundAgent": {
+      "total_requests": 2931,
+      "avg_response_time": 2.8,
+      "success_rate": 96.1,
+      "avg_confidence": 0.91,
+      "satisfaction_score": 4.8,
+      "knowledge_base_hits": 2456,
+      "cache_hit_rate": 0.82
+    },
+    "GeneralAgent": {
+      "total_requests": 719,
+      "avg_response_time": 2.5,
+      "success_rate": 89.4,
+      "avg_confidence": 0.74,
+      "satisfaction_score": 4.0,
+      "knowledge_base_hits": 567,
+      "cache_hit_rate": 0.45
+    }
+  },
+  "infrastructure_metrics": {
+    "database_performance": {
+      "chromadb": {
+        "avg_query_time": 0.087,
+        "total_queries": 12456,
+        "cache_hit_rate": 0.73,
+        "index_size_mb": 234.7
+      },
+      "redis": {
+        "avg_response_time": 0.012,
+        "total_operations": 45678,
+        "memory_usage_mb": 89.3,
+        "evictions": 23
+      }
+    },
+    "api_performance": {
+      "huggingface": {
+        "total_calls": 8934,
+        "avg_response_time": 1.234,
+        "success_rate": 97.8,
+        "rate_limit_hits": 12,
+        "cost_usd": 0.0
+      },
+      "external_apis": {
+        "total_calls": 1234,
+        "avg_response_time": 0.567,
+        "success_rate": 99.2,
+        "timeout_rate": 0.8
+      }
+    },
+    "system_resources": {
+      "cpu_usage": {
+        "avg_percent": 23.4,
+        "max_percent": 78.9,
+        "peak_time": "2024-01-10T14:30:00Z"
+      },
+      "memory_usage": {
+        "avg_mb": 512.3,
+        "max_mb": 1024.7,
+        "peak_time": "2024-01-10T14:30:00Z"
+      },
+      "disk_usage": {
+        "total_gb": 50.0,
+        "used_gb": 12.7,
+        "available_gb": 37.3
+      }
+    }
+  },
+  "business_metrics": {
+    "cost_analysis": {
+      "total_operational_cost": 0.0,
+      "cost_per_conversation": 0.0,
+      "cost_savings_vs_human": 52083.33,
+      "roi_percentage": 99.99
+    },
+    "user_engagement": {
+      "total_active_users": 1247,
+      "returning_users": 423,
+      "new_users": 824,
+      "avg_session_duration": 387,
+      "bounce_rate": 0.12
+    },
+    "conversion_metrics": {
+      "inquiry_to_purchase": 0.23,
+      "support_to_resolution": 0.85,
+      "escalation_rate": 0.15,
+      "self_service_rate": 0.75
+    }
+  }
+}

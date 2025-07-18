@@ -1,0 +1,237 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "collection_period": "2024-01-01 to 2024-01-15",
+    "total_responses": 856,
+    "response_rate": 0.687,
+    "last_updated": "2024-01-15T23:59:59Z"
+  },
+  "feedback_summary": {
+    "overall_satisfaction": {
+      "average_rating": 4.52,
+      "distribution": {
+        "5_stars": 423,
+        "4_stars": 287,
+        "3_stars": 89,
+        "2_stars": 34,
+        "1_star": 23
+      },
+      "trend": "+0.23 from previous period"
+    },
+    "agent_ratings": {
+      "ProductAgent": {
+        "average_rating": 4.67,
+        "total_ratings": 456,
+        "improvement_suggestions": [
+          "More detailed product comparisons",
+          "Better pricing information",
+          "Faster response times"
+        ]
+      },
+      "RefundAgent": {
+        "average_rating": 4.81,
+        "total_ratings": 189,
+        "improvement_suggestions": [
+          "Clearer refund timeline communication",
+          "Better policy explanations"
+        ]
+      },
+      "TechnicalAgent": {
+        "average_rating": 4.23,
+        "total_ratings": 178,
+        "improvement_suggestions": [
+          "More step-by-step guidance",
+          "Better troubleshooting coverage",
+          "Faster issue resolution"
+        ]
+      },
+      "GeneralAgent": {
+        "average_rating": 3.98,
+        "total_ratings": 33,
+        "improvement_suggestions": [
+          "More comprehensive knowledge base",
+          "Better routing to specialized agents"
+        ]
+      }
+    }
+  },
+  "detailed_feedback": [
+    {
+      "feedback_id": "fb_001",
+      "conversation_id": "conv_001",
+      "user_id": "user_12345",
+      "timestamp": "2024-01-15T10:36:00Z",
+      "rating": 5,
+      "agent_used": "ProductAgent",
+      "comment": "Excellent service! The AI understood exactly what I needed and provided clear information about the plans. The upgrade process was smooth.",
+      "categories": ["helpful", "accurate", "efficient"],
+      "sentiment": "positive",
+      "resolved": true,
+      "would_recommend": true
+    },
+    {
+      "feedback_id": "fb_002",
+      "conversation_id": "conv_002",
+      "user_id": "user_67890",
+      "timestamp": "2024-01-15T14:23:00Z",
+      "rating": 4,
+      "agent_used": "RefundAgent",
+      "comment": "Good experience overall. The refund process was explained clearly and processed quickly. Could use more detailed timeline information.",
+      "categories": ["helpful", "professional"],
+      "sentiment": "positive",
+      "resolved": true,
+      "would_recommend": true,
+      "suggestions": ["More detailed timeline information"]
+    },
+    {
+      "feedback_id": "fb_003",
+      "conversation_id": "conv_003",
+      "user_id": "user_54321",
+      "timestamp": "2024-01-15T16:53:00Z",
+      "rating": 3,
+      "agent_used": "TechnicalAgent",
+      "comment": "The AI tried to help but couldn't fully resolve my technical issue. Had to escalate to human support. The troubleshooting steps were helpful though.",
+      "categories": ["partially_helpful", "needs_improvement"],
+      "sentiment": "neutral",
+      "resolved": false,
+      "would_recommend": true,
+      "suggestions": ["Better technical issue resolution", "More advanced troubleshooting"]
+    },
+    {
+      "feedback_id": "fb_004",
+      "conversation_id": "conv_078",
+      "user_id": "user_11111",
+      "timestamp": "2024-01-14T09:15:00Z",
+      "rating": 5,
+      "agent_used": "ProductAgent",
+      "comment": "Amazing! Got answers to all my questions about features and pricing. Much faster than waiting for human support.",
+      "categories": ["fast", "comprehensive", "accurate"],
+      "sentiment": "positive",
+      "resolved": true,
+      "would_recommend": true
+    },
+    {
+      "feedback_id": "fb_005",
+      "conversation_id": "conv_156",
+      "user_id": "user_22222",
+      "timestamp": "2024-01-13T16:42:00Z",
+      "rating": 4,
+      "agent_used": "RefundAgent",
+      "comment": "Professional and efficient handling of my refund request. The AI was very polite and explained everything clearly.",
+      "categories": ["professional", "clear", "efficient"],
+      "sentiment": "positive",
+      "resolved": true,
+      "would_recommend": true
+    },
+    {
+      "feedback_id": "fb_006",
+      "conversation_id": "conv_203",
+      "user_id": "user_33333",
+      "timestamp": "2024-01-12T11:30:00Z",
+      "rating": 2,
+      "agent_used": "TechnicalAgent",
+      "comment": "The AI couldn't understand my specific technical problem. Responses were generic and not helpful for my situation.",
+      "categories": ["not_helpful", "generic_responses"],
+      "sentiment": "negative",
+      "resolved": false,
+      "would_recommend": false,
+      "suggestions": ["Better understanding of complex technical issues", "More personalized responses"]
+    },
+    {
+      "feedback_id": "fb_007",
+      "conversation_id": "conv_298",
+      "user_id": "user_44444",
+      "timestamp": "2024-01-11T14:20:00Z",
+      "rating": 5,
+      "agent_used": "ProductAgent",
+      "comment": "Incredible response time and accuracy! The AI provided exactly what I needed to make my decision. Better than human agents I've dealt with before.",
+      "categories": ["fast", "accurate", "helpful", "better_than_human"],
+      "sentiment": "positive",
+      "resolved": true,
+      "would_recommend": true
+    }
+  ],
+  "improvement_analysis": {
+    "top_positive_aspects": [
+      {
+        "aspect": "Response Speed",
+        "mentions": 234,
+        "percentage": 27.3
+      },
+      {
+        "aspect": "Accuracy",
+        "mentions": 198,
+        "percentage": 23.1
+      },
+      {
+        "aspect": "Helpfulness",
+        "mentions": 176,
+        "percentage": 20.6
+      },
+      {
+        "aspect": "Clarity",
+        "mentions": 145,
+        "percentage": 16.9
+      },
+      {
+        "aspect": "Availability",
+        "mentions": 103,
+        "percentage": 12.0
+      }
+    ],
+    "top_improvement_areas": [
+      {
+        "area": "Complex Technical Issues",
+        "mentions": 67,
+        "percentage": 38.3,
+        "priority": "high"
+      },
+      {
+        "area": "Personalization",
+        "mentions": 45,
+        "percentage": 25.7,
+        "priority": "medium"
+      },
+      {
+        "area": "Multi-step Processes",
+        "mentions": 34,
+        "percentage": 19.4,
+        "priority": "medium"
+      },
+      {
+        "area": "Context Retention",
+        "mentions": 29,
+        "percentage": 16.6,
+        "priority": "low"
+      }
+    ]
+  },
+  "sentiment_analysis": {
+    "overall_sentiment": "positive",
+    "distribution": {
+      "very_positive": 0.423,
+      "positive": 0.335,
+      "neutral": 0.134,
+      "negative": 0.078,
+      "very_negative": 0.030
+    },
+    "trending": "+0.156 improvement from previous period"
+  },
+      "recommendations": {
+    "immediate_actions": [
+      "Enhance TechnicalAgent with more advanced troubleshooting capabilities",
+      "Improve context retention across conversation turns",
+      "Add more personalization based on user history"
+    ],
+    "medium_term_improvements": [
+      "Implement multi-modal support (voice, images)",
+      "Add predictive analytics for proactive support",
+      "Enhance knowledge base with more technical solutions"
+    ],
+    "long_term_goals": [
+      "Develop specialized agents for specific industries",
+      "Implement emotional intelligence capabilities",
+      "Create adaptive learning from user interactions"
+    ]
+  }
+}
