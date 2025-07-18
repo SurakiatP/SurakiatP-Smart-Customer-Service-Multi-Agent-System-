@@ -1,0 +1,138 @@
+# Logging configuration for Customer Service AI
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  standard:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+  
+  detailed:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(module)s - %(funcName)s - %(lineno)d - %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+  
+  json:
+    format: "%(asctime)s"
+    class: pythonjsonlogger.jsonlogger.JsonFormatter
+    fmt: "%(asctime)s %(name)s %(levelname)s %(module)s %(funcName)s %(lineno)d %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: standard
+    stream: ext://sys.stdout
+
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: detailed
+    filename: ./logs/app.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+
+  error_file:
+    class: logging.handlers.RotatingFileHandler
+    level: ERROR
+    formatter: detailed
+    filename: ./logs/error.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+
+  agent_file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: detailed
+    filename: ./logs/agents.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 3
+    encoding: utf8
+
+  api_file:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: json
+    filename: ./logs/api.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 5
+    encoding: utf8
+
+  performance_file:
+    class: logging.handlers.RotatingFileHandler
+    level: INFO
+    formatter: json
+    filename: ./logs/performance.log
+    maxBytes: 10485760  # 10MB
+    backupCount: 3
+    encoding: utf8
+
+loggers:
+  # Application loggers
+  app:
+    level: INFO
+    handlers: [console, file]
+    propagate: false
+
+  app.agents:
+    level: DEBUG
+    handlers: [agent_file, console]
+    propagate: false
+
+  app.api:
+    level: INFO
+    handlers: [api_file, console]
+    propagate: false
+
+  app.database:
+    level: INFO
+    handlers: [file, console]
+    propagate: false
+
+  app.services:
+    level: INFO
+    handlers: [file, console]
+    propagate: false
+
+  # Performance monitoring
+  performance:
+    level: INFO
+    handlers: [performance_file]
+    propagate: false
+
+  # Security events
+  security:
+    level: WARNING
+    handlers: [error_file, console]
+    propagate: false
+
+  # External libraries
+  httpx:
+    level: WARNING
+    handlers: [file]
+    propagate: false
+
+  uvicorn:
+    level: INFO
+    handlers: [console]
+    propagate: false
+
+  uvicorn.access:
+    level: INFO
+    handlers: [api_file]
+    propagate: false
+
+  chromadb:
+    level: WARNING
+    handlers: [file]
+    propagate: false
+
+  redis:
+    level: WARNING
+    handlers: [file]
+    propagate: false
+
+root:
+  level: INFO
+  handlers: [console, file, error_file]
