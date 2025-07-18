@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Sample conversations for testing and development",
+    "created_at": "2024-01-15T10:00:00Z",
+    "use_case": "Testing, development, and demo purposes"
+  },
+  "test_scenarios": [
+    {
+      "scenario_id": "product_inquiry_basic",
+      "description": "Basic product information request",
+      "expected_agent": "ProductAgent",
+      "expected_confidence": 0.85,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "What features are included in your premium plan?"
+          },
+          {
+            "role": "assistant",
+            "content": "Our Premium plan includes: 24/7 priority support, advanced analytics dashboard, custom integrations, dedicated account manager, and 99.9% uptime SLA for $99/month.",
+            "expected_agent": "ProductAgent",
+            "expected_sources": ["products_db", "pricing_info"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "product_comparison",
+      "description": "Comparing different product plans",
+      "expected_agent": "ProductAgent",
+      "expected_confidence": 0.90,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Can you compare the Standard and Premium plans for me?"
+          },
+          {
+            "role": "assistant",
+            "content": "Here's a comparison: Standard Plan ($49/month) includes business hours support, standard analytics, and basic integrations. Premium Plan ($99/month) adds 24/7 priority support, advanced analytics, custom integrations, and a dedicated account manager.",
+            "expected_agent": "ProductAgent",
+            "expected_sources": ["products_db", "comparison_data"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "refund_policy_inquiry",
+      "description": "User asking about refund policy",
+      "expected_agent": "RefundAgent",
+      "expected_confidence": 0.92,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "What's your refund policy? How long do I have to return something?"
+          },
+          {
+            "role": "assistant",
+            "content": "Our refund policy varies by customer tier: Standard customers have 14 days, Premium customers have 30 days, and digital products have 7 days. The product must be in original condition with proof of purchase.",
+            "expected_agent": "RefundAgent",
+            "expected_sources": ["refund_policy", "terms_conditions"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "refund_request",
+      "description": "User requesting actual refund",
+      "expected_agent": "RefundAgent",
+      "expected_confidence": 0.95,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "I want to return my premium plan and get a refund. Order number is ORD001."
+          },
+          {
+            "role": "assistant",
+            "content": "I can help you process that refund. I've found your order for the premium plan purchased on January 1st. Since you're within the 30-day premium customer window, I can process your $99.99 refund. It will take 3-5 business days to complete.",
+            "expected_agent": "RefundAgent",
+            "expected_sources": ["order_system", "refund_policy"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "login_issue",
+      "description": "User having trouble logging in",
+      "expected_agent": "TechnicalAgent",
+      "expected_confidence": 0.88,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "I can't log into my account. It keeps saying invalid credentials."
+          },
+          {
+            "role": "assistant",
+            "content": "I can help you with login issues. Try these steps: 1) Verify your email and password are correct, 2) Clear your browser cache and cookies, 3) Try incognito/private browsing mode, 4) Reset your password if needed. If the issue persists, contact support.",
+            "expected_agent": "TechnicalAgent",
+            "expected_sources": ["troubleshooting_db", "login_help"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "app_crash",
+      "description": "User reporting app crashes",
+      "expected_agent": "TechnicalAgent",
+      "expected_confidence": 0.85,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "The mobile app keeps crashing when I try to access my dashboard."
+          },
+          {
+            "role": "assistant",
+            "content": "I understand the app is crashing on your dashboard. Let's troubleshoot: 1) Force close and restart the app, 2) Check for app updates in your app store, 3) Restart your device, 4) If the issue continues, try reinstalling the app. Please provide crash logs if available.",
+            "expected_agent": "TechnicalAgent",
+            "expected_sources": ["troubleshooting_db", "app_issues"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "complex_technical",
+      "description": "Complex technical issue requiring escalation",
+      "expected_agent": "TechnicalAgent",
+      "expected_confidence": 0.65,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "I'm getting a 500 error when trying to integrate your API with my custom webhook system. The error only happens with POST requests containing nested JSON objects."
+          },
+          {
+            "role": "assistant",
+            "content": "This sounds like a complex API integration issue. Based on the 500 error with nested JSON in POST requests, it could be a content-type or parsing issue. For detailed API troubleshooting, I'd recommend contacting our technical support team who can analyze your specific integration setup.",
+            "expected_agent": "TechnicalAgent",
+            "expected_escalation": true,
+            "expected_sources": ["api_documentation", "technical_support"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "general_greeting",
+      "description": "General greeting and conversation",
+      "expected_agent": "ProductAgent",
+      "expected_confidence": 0.70,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hi there! I'm new here. What can you help me with?"
+          },
+          {
+            "role": "assistant",
+            "content": "Hello! Welcome! I'm here to help you with product information, refunds, and technical support. I can answer questions about our plans, pricing, features, help with account issues, or process returns. What would you like to know?",
+            "expected_agent": "ProductAgent",
+            "expected_sources": ["general_help", "welcome_info"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "ambiguous_intent",
+      "description": "Ambiguous user intent requiring clarification",
+      "expected_agent": "ProductAgent",
+      "expected_confidence": 0.60,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "I have a problem with my account"
+          },
+          {
+            "role": "assistant",
+            "content": "I'd be happy to help with your account issue. Could you provide more details about what specific problem you're experiencing? For example, are you having trouble logging in, need to update billing information, or have questions about your current plan?",
+            "expected_agent": "ProductAgent",
+            "expected_sources": ["account_help", "clarification_prompts"]
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "multi_turn_conversation",
+      "description": "Multi-turn conversation with context retention",
+      "expected_agent": "ProductAgent",
+      "expected_confidence": 0.88,
+      "conversation": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "What's included in your standard plan?"
+          },
+          {
+            "role": "assistant",
+            "content": "Our Standard plan includes business hours support, standard analytics, basic integrations, email support, and 99.5% uptime SLA for $49/month.",
+            "expected_agent": "ProductAgent"
+          },
+          {
+            "role": "user",
+            "content": "How does that compare to premium?"
+          },
+          {
+            "role": "assistant",
+            "content": "The Premium plan ($99/month) adds 24/7 priority support, advanced analytics dashboard, custom integrations, and a dedicated account manager compared to the Standard plan. The uptime SLA also increases to 99.9%.",
+            "expected_agent": "ProductAgent",
+            "expected_context_aware": true
+          }
+        ]
+      }
+    }
+  ],
+  "edge_cases": [
+    {
+      "case_id": "empty_message",
+      "description": "Empty or whitespace-only message",
+      "input": "   ",
+      "expected_behavior": "validation_error"
+    },
+    {
+      "case_id": "very_long_message",
+      "description": "Message exceeding length limit",
+      "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "expected_behavior": "validation_error"
+    },
+    {
+      "case_id": "special_characters",
+      "description": "Message with special characters",
+      "input": "What's the price? <script>alert('test')</script>",
+      "expected_behavior": "sanitized_input"
+    },
+    {
+      "case_id": "non_english",
+      "description": "Non-English message",
+      "input": "สวัสดีครับ ต้องการข้อมูลเกี่ยวกับแพ็กเกจ",
+      "expected_behavior": "language_not_supported"
+    }
+  ]
+}

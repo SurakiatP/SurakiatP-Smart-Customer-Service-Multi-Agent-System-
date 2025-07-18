@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Mock responses for testing and development",
+    "created_at": "2024-01-15T10:00:00Z",
+    "use_case": "Unit testing, integration testing, and offline development"
+  },
+  "huggingface_responses": {
+    "classification_responses": {
+      "product_inquiry": {
+        "inputs": "What's the price of premium plan?",
+        "response": {
+          "labels": ["product_inquiry", "general_question", "technical_issue", "refund_request"],
+          "scores": [0.92, 0.05, 0.02, 0.01]
+        }
+      },
+      "refund_request": {
+        "inputs": "I want to return my order and get a refund",
+        "response": {
+          "labels": ["refund_request", "product_inquiry", "general_question", "technical_issue"],
+          "scores": [0.89, 0.07, 0.03, 0.01]
+        }
+      },
+      "technical_issue": {
+        "inputs": "I can't log into my account",
+        "response": {
+          "labels": ["technical_issue", "general_question", "product_inquiry", "refund_request"],
+          "scores": [0.85, 0.10, 0.03, 0.02]
+        }
+      },
+      "general_question": {
+        "inputs": "Hello, how are you?",
+        "response": {
+          "labels": ["general_question", "product_inquiry", "technical_issue", "refund_request"],
+          "scores": [0.78, 0.12, 0.07, 0.03]
+        }
+      }
+    },
+    "generation_responses": {
+      "product_response": {
+        "inputs": "Context: Premium plan costs $99/month with 24/7 support\nQuestion: What's the price?\nAnswer:",
+        "response": [
+          {
+            "generated_text": "Context: Premium plan costs $99/month with 24/7 support\nQuestion: What's the price?\nAnswer: Our Premium plan is $99 per month and includes 24/7 priority support, advanced analytics, custom integrations, and a dedicated account manager."
+          }
+        ]
+      },
+      "refund_response": {
+        "inputs": "Context: 30-day refund policy for premium customers\nQuestion: Can I get a refund?\nAnswer:",
+        "response": [
+          {
+            "generated_text": "Context: 30-day refund policy for premium customers\nQuestion: Can I get a refund?\nAnswer: Yes, as a premium customer, you have 30 days from purchase to request a refund. The product must be in original condition with proof of purchase."
+          }
+        ]
+      },
+      "technical_response": {
+        "inputs": "Context: Login troubleshooting steps\nQuestion: I can't log in\nAnswer:",
+        "response": [
+          {
+            "generated_text": "Context: Login troubleshooting steps\nQuestion: I can't log in\nAnswer: I can help you with login issues. Please try these steps: 1) Verify your email and password, 2) Clear browser cache, 3) Try incognito mode, 4) Reset password if needed."
+          }
+        ]
+      }
+    },
+    "error_responses": {
+      "api_timeout": {
+        "error": "Request timeout",
+        "status_code": 504,
+        "message": "The request timed out. Please try again."
+      },
+      "rate_limit": {
+        "error": "Rate limit exceeded",
+        "status_code": 429,
+        "message": "Too many requests. Please wait before trying again."
+      },
+      "model_overloaded": {
+        "error": "Model is currently loading",
+        "status_code": 503,
+        "message": "Model is loading. Please try again in a few minutes."
+      }
+    }
+  },
+  "database_responses": {
+    "chromadb_responses": {
+      "product_search": {
+        "query": "premium plan features",
+        "response": {
+          "documents": [
+            [
+              "Premium Plan: $99/month with 24/7 priority support, advanced analytics dashboard, custom integrations, dedicated account manager",
+              "Features comparison: Premium vs Standard - Premium includes advanced analytics, custom integrations, priority support",
+              "Premium plan benefits: 99.9% uptime SLA, dedicated account manager, priority queue for support tickets"
+            ]
+          ],
+          "metadatas": [
+            [
+              {"source": "products_db", "type": "product_info"},
+              {"source": "products_db", "type": "comparison"},
+              {"source": "products_db", "type": "benefits"}
+            ]
+          ],
+          "distances": [[0.2, 0.3, 0.4]]
+        }
+      },
+      "faq_search": {
+        "query": "refund policy",
+        "response": {
+          "documents": [
+            [
+              "Refund Policy: 14 days for standard customers, 30 days for premium customers, 7 days for digital products",
+              "Refund Process: Contact support with order number, we'll process within 3-5 business days",
+              "Refund Conditions: Product must be in original condition, proof of purchase required"
+            ]
+          ],
+          "metadatas": [
+            [
+              {"source": "policies", "type": "refund_policy"},
+              {"source": "policies", "type": "process"},
+              {"source": "policies", "type": "conditions"}
+            ]
+          ],
+          "distances": [[0.1, 0.2, 0.3]]
+        }
+      }
+    },
+    "redis_responses": {
+      "cache_hit": {
+        "key": "ai_resp:abcd1234",
+        "value": {
+          "agent_name": "ProductAgent",
+          "content": "Our Premium plan costs $99/month...",
+          "confidence": 0.92,
+          "cached_at": "2024-01-15T10:30:00Z"
+        }
+      },
+      "cache_miss": {
+        "key": "ai_resp:xyz9876",
+        "value": null
+      },
+      "conversation_history": {
+        "key": "conversation:conv_123",
+        "value": [
+          {
+            "id": "msg_001",
+            "content": "What's the price of premium plan?",
+            "type": "user",
+            "timestamp": "2024-01-15T10:30:00Z"
+          },
+          {
+            "id": "msg_002",
+            "content": "Our Premium plan costs $99/month...",
+            "type": "assistant",
+            "timestamp": "2024-01-15T10:30:15Z"
+          }
+        ]
+      }
+    }
+  },
+  "external_api_responses": {
+    "order_system": {
+      "get_order": {
+        "order_id": "ORD001",
+        "response": {
+          "order_id": "ORD001",
+          "customer_email": "customer@example.com",
+          "total_amount": 99.99,
+          "status": "completed",
+          "order_date": "2024-01-01T10:30:00Z",
+          "refund_eligible": true
+        }
+      },
+      "process_refund": {
+        "order_id": "ORD001",
+        "response": {
+          "refund_id": "REF_ORD001_20240115",
+          "status": "processed",
+          "amount": 99.99,
+          "estimated_completion": "3-5 business days"
+        }
+      }
+    },
+    "inventory_system": {
+      "get_product": {
+        "product_id": "prod_001",
+        "response": {
+          "product_id": "prod_001",
+          "name": "Premium Plan",
+          "available": true,
+          "price": 99.99,
+          "stock_level": "unlimited"
+        }
+      }
+    },
+    "notification_system": {
+      "send_email": {
+        "user_id": "user_123",
+        "response": {
+          "message_id": "email_456",
+          "status": "sent",
+          "sent_at": "2024-01-15T10:30:00Z"
+        }
+      }
+    }
+  },
+  "error_scenarios": {
+    "validation_errors": [
+      {
+        "input": "",
+        "error": "Message cannot be empty",
+        "status_code": 422
+      },
+      {
+        "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "error": "Message too long. Maximum 1000 characters.",
+        "status_code": 422
+      }
+    ],
+    "system_errors": [
+      {
+        "scenario": "database_connection_failure",
+        "error": "Database connection failed",
+        "fallback_response": "I'm experiencing technical difficulties. Please try again in a moment."
+      },
+      {
+        "scenario": "api_service_unavailable",
+        "error": "External API service unavailable",
+        "fallback_response": "I'm having trouble accessing some information. Please try again or contact support."
+      }
+    ]
+  },
+  "performance_test_data": {
+    "concurrent_requests": {
+      "user_count": 100,
+      "requests_per_user": 10,
+      "expected_response_time": 3.0,
+      "expected_success_rate": 0.95
+    },
+    "load_test_scenarios": [
+      {
+        "scenario": "high_traffic",
+        "concurrent_users": 500,
+        "duration_minutes": 15,
+        "expected_degradation": "minimal"
+      },
+      {
+        "scenario": "stress_test",
+        "concurrent_users": 1000,
+        "duration_minutes": 5,
+        "expected_behavior": "graceful_degradation"
+      }
+    ]
+  }
+}
