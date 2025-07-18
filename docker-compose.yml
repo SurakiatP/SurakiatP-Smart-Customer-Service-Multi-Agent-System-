@@ -1,0 +1,137 @@
+version: '3.8'
+
+services:
+  # Redis Cache and Session Management
+  redis:
+    image: redis:7-alpine
+    container_name: customer-service-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - customer-service-network
+
+  # FastAPI Backend Service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customer-service-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # Application Settings
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+      - DEBUG=${DEBUG:-true}
+      - PROJECT_NAME=Customer Service AI
+      
+      # Database Configuration
+      - REDIS_URL=redis://redis:6379
+      - CHROMA_PERSIST_DIRECTORY=/app/data/chroma_db
+      
+      # API Keys
+      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY}
+      - SECRET_KEY=${SECRET_KEY:-dev-secret-key-change-in-production}
+      
+      # Performance Settings
+      - MAX_CONCURRENT_REQUESTS=${MAX_CONCURRENT_REQUESTS:-100}
+      - REQUEST_TIMEOUT=${REQUEST_TIMEOUT:-30}
+      - CACHE_TTL=${CACHE_TTL:-3600}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - LOG_FILE=/app/logs/app.log
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+      # Mount source code for development (comment out for production)
+      - ./app:/app/app:ro
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - customer-service-network
+
+  # Streamlit Frontend Service
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customer-service-frontend
+    restart: unless-stopped
+    command: streamlit run app/frontend/app.py --server.port=8501 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+      - ENVIRONMENT=${ENVIRONMENT:-development}
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+    volumes:
+      - ./app:/app/app:ro
+      - ./data:/app/data:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - customer-service-network
+
+  # ChromaDB Vector Database (Optional: External ChromaDB)
+  chromadb:
+    image: ghcr.io/chroma-core/chroma:latest
+    container_name: customer-service-chromadb
+    restart: unless-stopped
+    ports:
+      - "8200:8000"
+    environment:
+      - IS_PERSISTENT=TRUE
+      - PERSIST_DIRECTORY=/chroma/chroma
+      - ANONYMIZED_TELEMETRY=${ANONYMIZED_TELEMETRY:-TRUE}
+    volumes:
+      - chromadb_data:/chroma/chroma
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - customer-service-network
+
+# Named volumes for data persistence
+volumes:
+  redis_data:
+    driver: local
+  chromadb_data:
+    driver: local
+
+# Custom network for service communication
+networks:
+  customer-service-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
