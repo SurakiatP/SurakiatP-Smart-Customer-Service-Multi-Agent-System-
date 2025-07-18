@@ -1,0 +1,126 @@
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Environment variables (CRITICAL - security)
+.env
+.env.*
+!.env.example
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Documentation
+docs/_build/
+docs/build/
+*.md
+README*
+!README.md
+
+# Logs and temporary files
+*.log
+logs/
+temp/
+tmp/
+
+# Data files (keep structure, exclude large files)
+data/chroma_db/
+data/analytics/*.json
+data/sample_data/*.json
+
+# Docker files themselves
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Development tools
+.pre-commit-config.yaml
+mypy.ini
+setup.cfg
+tox.ini
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Large model files (if any)
+*.bin
+*.h5
+*.pkl
+models/
+
+# Node modules (if any)
+node_modules/
+npm-debug.log*
+
+# Monitoring and nginx config (copy manually if needed)
+monitoring/
+nginx/
+
+# Scripts that shouldn't be in container
+scripts/deploy.py
+scripts/run_tests.py
