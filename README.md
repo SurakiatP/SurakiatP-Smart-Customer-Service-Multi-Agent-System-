@@ -440,8 +440,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## **Support & Contact**
 
 - **Email**: surakiat.0723@gmail.com
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/surakiat-kansa-ard-171942351/)
-- **GitHub**: [Your GitHub Profile](https://github.com/SurakiatP)
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/surakiat-kansa-ard-171942351/)
+- **GitHub**: [GitHub Profile](https://github.com/SurakiatP)
 
 ---
 
