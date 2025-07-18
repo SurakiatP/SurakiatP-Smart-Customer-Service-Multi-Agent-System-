@@ -1,0 +1,39 @@
+{
+  "faqs": [
+    {
+      "id": "faq_001",
+      "question": "How do I upgrade my plan?",
+      "answer": "You can upgrade your plan anytime from your dashboard. Go to Settings > Billing > Change Plan. The upgrade takes effect immediately and you'll be prorated for the current billing period.",
+      "category": "billing",
+      "popularity": 95
+    },
+    {
+      "id": "faq_002",
+      "question": "What payment methods do you accept?",
+      "answer": "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for annual plans. All payments are processed securely.",
+      "category": "billing",
+      "popularity": 88
+    },
+    {
+      "id": "faq_003",
+      "question": "How do I reset my password?",
+      "answer": "Click 'Forgot Password' on the login page, enter your email, and check your inbox for reset instructions. The reset link expires in 24 hours.",
+      "category": "account",
+      "popularity": 92
+    },
+    {
+      "id": "faq_004",
+      "question": "Can I cancel my subscription anytime?",
+      "answer": "Yes, you can cancel your subscription anytime from your account settings. Your service will continue until the end of your current billing period.",
+      "category": "billing",
+      "popularity": 85
+    },
+    {
+      "id": "faq_005",
+      "question": "Do you offer a free trial?",
+      "answer": "Yes! We offer a 14-day free trial for all plans. No credit card required to start. You can upgrade to a paid plan anytime during or after the trial.",
+      "category": "trial",
+      "popularity": 90
+    }
+  ]
+}

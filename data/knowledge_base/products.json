@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "Premium Plan",
+      "description": "Our most comprehensive service with advanced features",
+      "price": "$99/month",
+      "features": [
+        "24/7 priority support",
+        "Advanced analytics dashboard",
+        "Custom integrations",
+        "Dedicated account manager",
+        "99.9% uptime SLA"
+      ],
+      "category": "subscription",
+      "popular": true
+    },
+    {
+      "id": "prod_002", 
+      "name": "Standard Plan",
+      "description": "Perfect for growing businesses with essential features",
+      "price": "$49/month",
+      "features": [
+        "Business hours support",
+        "Standard analytics",
+        "Basic integrations",
+        "Email support",
+        "99.5% uptime SLA"
+      ],
+      "category": "subscription",
+      "popular": false
+    },
+    {
+      "id": "prod_003",
+      "name": "Basic Plan",
+      "description": "Ideal for small teams just getting started",
+      "price": "$19/month",
+      "features": [
+        "Community support",
+        "Basic dashboard",
+        "Limited integrations",
+        "Email support only",
+        "99% uptime SLA"
+      ],
+      "category": "subscription",
+      "popular": false
+    }
+  ]
+}

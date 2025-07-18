@@ -1,0 +1,92 @@
+{
+  "troubleshooting": [
+    {
+      "issue_type": "login_problems",
+      "common_causes": [
+        "Incorrect password",
+        "Account locked",
+        "Browser cache issues",
+        "Network connectivity"
+      ],
+      "solutions": [
+        {
+          "step": 1,
+          "action": "Verify your email and password are correct"
+        },
+        {
+          "step": 2,
+          "action": "Clear browser cache and cookies"
+        },
+        {
+          "step": 3,
+          "action": "Try incognito/private browsing mode"
+        },
+        {
+          "step": 4,
+          "action": "Reset password if needed"
+        },
+        {
+          "step": 5,
+          "action": "Contact support if issue persists"
+        }
+      ],
+      "escalation_criteria": "More than 3 failed login attempts or account lockout"
+    },
+    {
+      "issue_type": "payment_failures",
+      "common_causes": [
+        "Insufficient funds",
+        "Expired card",
+        "Bank restrictions",
+        "Billing address mismatch"
+      ],
+      "solutions": [
+        {
+          "step": 1,
+          "action": "Verify card details and billing address"
+        },
+        {
+          "step": 2,
+          "action": "Check account balance or credit limit"
+        },
+        {
+          "step": 3,
+          "action": "Contact your bank about restrictions"
+        },
+        {
+          "step": 4,
+          "action": "Try an alternative payment method"
+        }
+      ],
+      "escalation_criteria": "Payment fails after trying multiple methods"
+    },
+    {
+      "issue_type": "app_performance",
+      "common_causes": [
+        "Slow internet connection",
+        "Browser compatibility",
+        "Heavy system load",
+        "Outdated browser"
+      ],
+      "solutions": [
+        {
+          "step": 1,
+          "action": "Check your internet connection speed"
+        },
+        {
+          "step": 2,
+          "action": "Update your browser to latest version"
+        },
+        {
+          "step": 3,
+          "action": "Close unnecessary browser tabs"
+        },
+        {
+          "step": 4,
+          "action": "Try a different browser"
+        }
+      ],
+      "escalation_criteria": "Performance issues persist across multiple browsers"
+    }
+  ]
+}

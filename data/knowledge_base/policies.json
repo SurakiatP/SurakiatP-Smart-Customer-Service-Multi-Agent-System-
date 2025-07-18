@@ -1,0 +1,46 @@
+{
+  "refund_policy": {
+    "standard_products": {
+      "period": "14 days",
+      "conditions": [
+        "Product must be in original condition",
+        "Proof of purchase required",
+        "No physical damage"
+      ]
+    },
+    "digital_products": {
+      "period": "7 days",
+      "conditions": [
+        "No downloads or usage after purchase",
+        "Account verification required"
+      ]
+    },
+    "premium_customers": {
+      "period": "30 days",
+      "conditions": [
+        "Premium membership status",
+        "Product must be in original condition"
+      ]
+    },
+    "non_refundable": [
+      "Customized products",
+      "Gift cards",
+      "Used digital content"
+    ]
+  },
+  "privacy_policy": {
+    "data_collection": "We collect minimal necessary data to provide our services",
+    "data_usage": "Data is used only for service delivery and improvement",
+    "data_sharing": "We never share personal data with third parties without consent",
+    "data_retention": "Data is retained only as long as necessary"
+  },
+  "terms_of_service": {
+    "user_responsibilities": [
+      "Provide accurate information",
+      "Use service in compliance with laws",
+      "Respect other users and staff"
+    ],
+    "service_availability": "We strive for 99.9% uptime but cannot guarantee continuous availability",
+    "limitation_of_liability": "Our liability is limited to the amount paid for services"
+  }
+}
