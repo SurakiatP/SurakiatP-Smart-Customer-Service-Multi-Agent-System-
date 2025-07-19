@@ -23,36 +23,7 @@ An advanced AI-powered customer service system that uses multi-agent architectur
 
 ## **System Architecture**
 
-```mermaid
-graph TB
-    subgraph "User Interface"
-        A[Customer] --> B[Streamlit Frontend]
-    end
-    
-    subgraph "API Layer"
-        B --> C[FastAPI Backend]
-        C --> D[Router Agent]
-    end
-    
-    subgraph "AI Agents"
-        D --> E[Product Agent]
-        D --> F[Refund Agent]
-        D --> G[Technical Agent]
-    end
-    
-    subgraph "Data Layer"
-        E --> H[ChromaDB Vector DB]
-        F --> H
-        G --> H
-        C --> I[Redis Cache]
-    end
-    
-    subgraph "External Services"
-        E --> J[Hugging Face API]
-        F --> J
-        G --> J
-    end
-```
+![alt text](images/architecture.png)
 
 ---
 
