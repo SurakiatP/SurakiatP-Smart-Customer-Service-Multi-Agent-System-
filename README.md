@@ -1,5 +1,7 @@
 # Smart-Customer-Service-Multi-Agent-System
 
+## LinkedIn Post >> https://www.linkedin.com/feed/update/urn:li:activity:7352257488970293249/
+
 > **Intelligent multi-agent customer service system that reduces response time by 60% using LangGraph orchestration and Hugging Face models**
 
 [![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)](https://python.org)
